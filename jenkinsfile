@@ -1,7 +1,5 @@
-sh """
 mkdir marwa
 cd marwa 
 echo "hello" > file
 cat file 
 
-"""
