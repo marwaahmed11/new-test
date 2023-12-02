@@ -1,11 +1,7 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {   
-                sh "ls"
-                sh "echo hello world"
-            }
-        }
-    }
-}
+sh """
+mkdir marwa
+cd marwa 
+echo "hello" > file
+cat file 
+
+"""
