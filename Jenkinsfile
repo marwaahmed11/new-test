@@ -8,6 +8,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/marwaahmed11/new-test'
                 sh """
                 echo "New content" > file
+                echo "Hello" >> test-file
                 sed -i 's/20.14/20.15/g' tgroba
                 ls 
                 pwd
