@@ -1,8 +1,9 @@
 pipeline {
-    agent  any
+    agent any
     stages {
-        stage('CI') {
+        stage("Build") {
             steps {
+                // Create a dummy file in the repo
                 git branch: 'main', url: 'https://github.com/marwaahmed11/new-test'
                 sh """
                 echo "New content" > file
@@ -11,20 +12,27 @@ pipeline {
                 pwd
                 cat file 
                 cat tgroba
-             
-                git add .
-                git -c user.name="marwaahmed11" -c user.email="marwaahmed200126@gmail.com" commit -m "message"
-                """    
+               """
             }
         }
-        stage('Push Code') {
+        stage("Commit") {
             steps {
-                script {
-                    git branch: "main", 
-                    credentialsId: "test", 
-                    message: "Update code", 
-                    push: true
-                }
+                sh('''
+                    git checkout -B main
+                    git config user.name 'marwaahmed11'
+                    git config user.email 'marwaahmed200126@gmail.com'
+                    git add . && git commit -am "[Jenkins CI] Add build file"
+                ''')
+            }
+        }
+        stage("Push") {
+            environment {
+                GIT_AUTH = credentials('test')
+            }
+            steps {
+                sh('''
+                    git push origin HEAD:main
+                ''')
             }
         }
     }
