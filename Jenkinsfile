@@ -13,10 +13,20 @@ pipeline {
                 cat tgroba
                 git add .
                 git -c user.name="marwaahmed11" -c user.email="marwaahmed200126@gmail.com" commit -m "message"
-                git push origin main
+                // git push origin main
                 """
                 
             }
+        stage('Update Code') {
+            steps {
+                script {
+                    git branch: "main", 
+                        // credentialsId: "<your-credentials>", 
+                        message: "Update code", 
+                        push: true
+                }
+            }
+        }
         }
     }
 }
