@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     git branch: "main", 
-                        // credentialsId: "<your-credentials>", 
+                    credentialsId: "test", 
                     message: "Update code", 
                     push: true
                 }
