@@ -10,7 +10,7 @@ pipeline {
                 ls 
                 pwd
                 cat file 
-                cat tgoba
+                cat tgroba
                 git add .
                 git -c user.name="marwaahmed11" -c user.email="marwaahmed200126@gmail.com" commit -m "message"
                 git remote add origin https://github.com/marwaahmed11/new-test.git
