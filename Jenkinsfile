@@ -11,6 +11,7 @@ pipeline {
                 pwd
                 cat file 
                 cat tgroba
+                checkout scm
                 git add .
                 git -c user.name="marwaahmed11" -c user.email="marwaahmed200126@gmail.com" commit -m "message"
                 """    
