@@ -1,3 +1,4 @@
+// https://docs.cloudbees.com/docs/cloudbees-ci-kb/latest/client-and-managed-controllers/pipeline-equivalent-to-git-publisher
 pipeline {
     agent any
     stages {
