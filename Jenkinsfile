@@ -12,9 +12,7 @@ pipeline {
                 cat file 
                 cat 'new test'
                 git add .
-                git commit -m "Modify file"
-                git config --global user.email "marwaahmed200126@gmail.com"
-                git config --global user.name "marwaahmed11"
+                GIT_AUTHOR_EMAIL="marwaahmed200126@gmail.com" && GIT_AUTHOR_NAME="marwaahmed11" && git commit -m "Modify file"
                 git push origin main
                 """
                 
